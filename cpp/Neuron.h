@@ -1,29 +1,19 @@
 #ifndef __NEURON_H__
 #define __NEURON_H__
 
+#include "Node.h"
 #include <vector>
-#include "InputNode.h"
-
+#include "InputLayer.h"
 using namespace std;
 
-class Neuron {
-private:
-	vector<InputNode*> inputs_;
-	bool out_;
-	double thresh_;
-	double rand_;
-	double value_;
+class Neuron : public Node{
 public:
 	Neuron();
-	Neuron(double);
-	void setInputs(vector<InputNode*>);
-	void setThreshhold(double);
-	bool getValue()const;
-	double sigmoid(double);
-	void normalize();
-	void sum(vector<double>);
+	void setSynapses(InputLayer*);
+	vector<double> getWeights()const;
+private:
+	InputLayer* synapses_;
+	vector<double> weights_;
 };
-Neuron& operator*(Neuron&, double);
-Neuron& operator*(double, Neuron&);
 
 #endif

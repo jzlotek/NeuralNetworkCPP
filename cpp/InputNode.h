@@ -1,11 +1,14 @@
 #ifndef __INPUTNODE_H__
 #define __INPUTNODE_H__
 
-class InputNode {
+#include "Node.h"
+
+using namespace std;
+
+class InputNode : public Node {
 public:
-	double getValue()const;
-private:
-	double value_;
+	void setValue(double);
+	InputNode();
 };
 
 #endif
